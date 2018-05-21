@@ -39,8 +39,8 @@
 <script type="text/ecmascript-6">
 import DelegateService from '@/services/delegate'
 import moment from 'moment'
+import poollog from '../../poollogs.json'
 const netconfig = require('../../network_conf.json')
-const poollog = require('../../poollog.json')
 
 export default {
 
