@@ -27,58 +27,26 @@
     <div class="md:flex md:justify-between mt-6">
       <div class="bg-grey-lighter w-full md:mr-3 p-8 mt-6 md:mt-0 xl:p-12-16 shadow">
         <h2 class="mb-2">Total paid</h2>
-        <p>{{ totalpaid }} BPL</p>
+        <p>{{ delegate.totalpaid }} BPL</p>
       </div>
       <div class="bg-grey-lighter w-full md:mx-3 p-8 mt-6 md:mt-0 xl:p-12-16 shadow">
         <h2 class="mb-2">Total pending</h2>
-        <p>{{ totalpending }} BPL</p>
+        <p>{{ delegate.totalpending }} BPL</p>
       </div>
       <div class="bg-grey-lighter w-full md:ml-3 p-8 mt-6 md:mt-0 xl:p-12-16 shadow">
         <h2 class="mb-2">Next payout</h2>
-        <p>{{ nextpayout }}</p>
+        <p>{{ delegate.nextpayout }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import DelegateService from '@/services/delegate'
-import moment from 'moment'
-import poollog from '../../poollogs.json'
-const netconfig = require('../../network_conf.json')
-
 export default {
-
-  components: {
-    DelegateService
-  },
-
-  data: () => ({
-    delegate: {},
-    totalpaid: 0,
-    totalpending: 0,
-    nextpayout: moment.unix(poollog.lastpayout).add(1, 'week').format('MMM D, YYYY')
-  }),
-
-  mounted () {
-    DelegateService.find(netconfig.pubkey)
-      .then(response => this.setDelegate(response), this.setTotals())
-  },
-
-  methods: {
-    setDelegate (delegate) {
-      this.delegate = delegate
-    },
-
-    setTotals () {
-      for (const address in poollog.accounts) {
-        this.totalpaid += poollog.accounts[address].received
-        this.totalpending += poollog.accounts[address].pending
-      }
+  props: {
+    delegate: {
+      required: true
     }
-  },
-
-  computed: {
   }
 }
 </script>

@@ -1,36 +1,18 @@
 <template>
   <div class="max-w-2xl mx-auto md:pt-5">
     <jumbotron></jumbotron>
-    <pool-details></pool-details>
-
-<!--
-    <section v-if="priceChart" class="hidden md:block mb-5 bg-theme-feature-background xl:rounded-lg">
-      <chart-wrapper></chart-wrapper>
-    </section>
-
-    <section class="page-section py-5 md:py-10">
-      <nav class="mx-5 sm:mx-10 mb-8 border-b flex items-end">
-        <div @click="dataView = 'transactions'"
-             :class="dataView === 'transactions' ? 'active-tab' : 'inactive-tab'">
-
-        </div>
-        <div @click="dataView = 'blocks'"
-             :class="dataView === 'blocks' ? 'active-tab' : 'inactive-tab'">
-
-        </div>
-      </nav>
-
-      <latest-transactions v-if="dataView === 'transactions'"></latest-transactions>
-
-      <latest-blocks v-if="dataView === 'blocks'"></latest-blocks>
-    </section> -->
+    <pool-details :delegate='delegate'></pool-details>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-// import { mapGetters } from 'vuex'
-import Jumbotron from '@/components/Jumbotron'
+import DelegateService from '@/services/delegate'
 import PoolDetails from '@/components/PoolDetails'
+import Jumbotron from '@/components/Jumbotron'
+import moment from 'moment'
+import poollogs from '../../poollogs.json'
+
+const netconfig = require('../../network_conf.json')
 
 export default {
   components: {
@@ -39,8 +21,37 @@ export default {
   },
 
   data: () => ({
-
+    delegate: {}
   }),
+
+  mounted () {
+    DelegateService.find(netconfig.pubkey)
+      .then(response => {
+        this.setDelegate(response)
+        this.setTotals()
+        this.setNextPayout()
+      })
+  },
+
+  methods: {
+    setDelegate (delegate) {
+      this.delegate = delegate
+    },
+
+    setTotals () {
+      this.delegate.totalpaid = 0
+      this.delegate.totalpending = 0
+
+      for (const address in poollogs.accounts) {
+        this.delegate.totalpaid += poollogs.accounts[address].received
+        this.delegate.totalpending += poollogs.accounts[address].pending
+      }
+    },
+
+    setNextPayout () {
+      this.delegate.nextpayout = moment.unix(poollogs.lastpayout).add(1, 'week').format('MMM D, YYYY')
+    }
+  },
 
   computed: {
     // ...mapGetters('ui', ['priceChart']),
