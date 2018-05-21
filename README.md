@@ -1,4 +1,4 @@
-# vue-test
+# delegate-monitor
 
 > A Vue.js project
 
