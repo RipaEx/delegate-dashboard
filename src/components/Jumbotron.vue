@@ -1,5 +1,5 @@
 <template>
-  <div class="jumbotron max-w-xl bg-grey-lighter mx-auto p-8">
+  <div class="jumbotron max-w-xl bg-grey-lighter mx-auto p-8 xl:p-12-16">
     <h1 class="text-5xl my-4"><a href="#">dated delegate pool</a></h1>
 
     <p class="mb-2 text-xl">Sharing 90% of forged amount (reward &amp; fees) to voters</p>

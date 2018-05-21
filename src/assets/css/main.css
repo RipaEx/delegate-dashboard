@@ -25,6 +25,12 @@ a {
   font-weight: 300;
 }
 
+@media (min-width:1200px) {
+  .xl\:p-12-16 {
+    padding: 3em 4em;
+  }
+}
+
 h1, h2, h3 {
   @apply font-light
 }
