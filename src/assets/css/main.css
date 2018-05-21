@@ -1,0 +1,30 @@
+@import '../../../node_modules/animate.css/animate.css';
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+
+@tailwind preflight;
+@tailwind utilities;
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #2780e3;
+  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+
+.min-h-80px {
+  min-height: 80px;
+}
+
+.font-sans {
+  font-family: 'Source Sans Pro';
+  font-weight: 300;
+}
+
+h1, h2, h3 {
+  @apply font-light
+}
