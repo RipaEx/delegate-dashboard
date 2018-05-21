@@ -1,34 +1,39 @@
 <template>
   <div class="max-w-xl mx-auto">
-    <div class="flex justify-between mt-6">
-      <div class="bg-grey-lighter w-full mr-3 panel">
-        <h2 class="mb-2">Rank</h2>
-        <p>{{ delegate.rate }}</p>
+    <div class="md:flex justify-stretch md:mt-6">
+      <div class="flex flex-col sm:flex-row w-full">
+        <div class="bg-grey-lighter w-full mr-3 mt-6 md:mt-0 p-8">
+          <h2 class="mb-2">Rank</h2>
+          <p>{{ delegate.rate }}</p>
+        </div>
+        <div class="bg-grey-lighter w-full sm:ml-3 md:mr-3 mt-6 md:mt-0 p-8">
+          <h2 class="mb-2">Productivity</h2>
+          <p>{{ delegate.productivity }}%</p>
+        </div>
       </div>
-      <div class="bg-grey-lighter w-full mx-3 panel">
-        <h2 class="mb-2">Productivity</h2>
-        <p>{{ delegate.productivity }}%</p>
-      </div>
-      <div class="bg-grey-lighter w-full mx-3 panel">
-        <h2 class="mb-2">Approval</h2>
-        <p>{{ delegate.approval }}%</p>
-      </div>
-      <div class="bg-grey-lighter w-full ml-3 panel">
-        <h2 class="mb-2">Voters</h2>
-        <p>{{ delegate.voters - 1 }}</p>
+
+      <div class="flex flex-col sm:flex-row w-full mt-6 md:mt-0">
+        <div class="bg-grey-lighter w-full mr-3 md:mx-3 p-8">
+          <h2 class="mb-2">Approval</h2>
+          <p>{{ delegate.approval }}%</p>
+        </div>
+        <div class="bg-grey-lighter w-full sm:ml-3 mt-6 sm:mt-0 p-8">
+          <h2 class="mb-2">Voters</h2>
+          <p>{{ delegate.voters - 1 }}</p>
+        </div>
       </div>
     </div>
 
-    <div class="flex justify-between mt-6">
-      <div class="bg-grey-lighter w-full mr-3 panel">
+    <div class="md:flex md:justify-between mt-6">
+      <div class="bg-grey-lighter w-full md:mr-3 p-8 mt-6 md:mt-0">
         <h2 class="mb-2">Total paid</h2>
         <p>{{ totalpaid }} BPL</p>
       </div>
-      <div class="bg-grey-lighter w-full mx-3 panel">
+      <div class="bg-grey-lighter w-full md:mx-3 p-8 mt-6 md:mt-0">
         <h2 class="mb-2">Total pending</h2>
         <p>{{ totalpending }} BPL</p>
       </div>
-      <div class="bg-grey-lighter w-full ml-3 panel">
+      <div class="bg-grey-lighter w-full md:ml-3 p-8 mt-6 md:mt-0">
         <h2 class="mb-2">Next payout</h2>
         <p>{{ nextpayout }}</p>
       </div>

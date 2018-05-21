@@ -1,5 +1,5 @@
 <template>
-  <div class="jumbotron max-w-xl bg-grey-lighter mx-auto">
+  <div class="jumbotron max-w-xl bg-grey-lighter mx-auto p-8">
     <h1 class="text-5xl my-4"><a href="#">dated delegate pool</a></h1>
 
     <p class="mb-2 text-xl">Sharing 90% of forged amount (reward &amp; fees) to voters</p>
@@ -34,6 +34,5 @@ export default {
     background-size: 500px 500px;
     background-position: right -120px bottom -120px;
     background-repeat: no-repeat;
-    padding: 4em;
   }
 </style>
