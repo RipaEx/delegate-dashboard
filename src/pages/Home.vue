@@ -10,7 +10,6 @@ import DelegateService from '@/services/delegate'
 import PoolDetails from '@/components/PoolDetails'
 import Jumbotron from '@/components/Jumbotron'
 import moment from 'moment'
-import poollogs from '../../poollogs.json'
 
 const netconfig = require('../../network_conf.json')
 
@@ -28,28 +27,29 @@ export default {
     DelegateService.find(netconfig.pubkey)
       .then(response => {
         this.setDelegate(response)
-        this.setTotals()
         this.setNextPayout()
+        this.setTotals()
       })
   },
 
   methods: {
+
     setDelegate (delegate) {
       this.delegate = delegate
     },
 
-    setTotals () {
-      this.delegate.totalpaid = 0
-      this.delegate.totalpending = 0
+    setTotals (poollogs) {
+      this.delegate.poollogs.totalpaid = 0
+      this.delegate.poollogs.totalpending = 0
 
-      for (const address in poollogs.accounts) {
-        this.delegate.totalpaid += poollogs.accounts[address].received
-        this.delegate.totalpending += poollogs.accounts[address].pending
+      for (const address in this.delegate.poollogs.accounts) {
+        this.delegate.poollogs.totalpaid += this.delegate.poollogs.accounts[address].received
+        this.delegate.poollogs.totalpending += this.delegate.poollogs.accounts[address].pending
       }
     },
 
     setNextPayout () {
-      this.delegate.nextpayout = moment.unix(poollogs.lastpayout).add(1, 'week').format('MMM D, YYYY')
+      this.delegate.poollogs.nextpayout = moment.unix(this.delegate.poollogs.lastpayout).add(1, 'week').format('MMM D, YYYY')
     }
   },
 

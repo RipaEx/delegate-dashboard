@@ -1,4 +1,5 @@
 import NodeService from '@/services/node'
+import PoollogsService from '@/services/poollogs'
 
 class DelegateService {
   find (publicKey) {
@@ -16,7 +17,11 @@ class DelegateService {
       }).then(response => {
         delegate.voters = response.data.accounts.length
 
-        return delegate
+        return PoollogsService.get().then(response => {
+          delegate.poollogs = response.data
+
+          return delegate
+        })
       })
     })
   }

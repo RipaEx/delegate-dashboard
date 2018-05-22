@@ -6,7 +6,7 @@
 
 <script type="text/ecmascript-6">
 import Balances from '@/components/tables/Balances'
-import poollogs from '../../poollogs.json'
+import PoollogService from '@/services/poollogs'
 
 export default {
   data: () => ({
@@ -18,13 +18,15 @@ export default {
   },
 
   mounted () {
-    this.getBalances()
+    PoollogService.get().then(response => {
+      this.setBalances(response.data.accounts)
+    })
   },
 
   methods: {
-    getBalances () {
-      for (const addr in poollogs.accounts) {
-        let it = poollogs.accounts[addr]
+    setBalances (accounts) {
+      for (const addr in accounts) {
+        let it = accounts[addr]
         it['address'] = addr
         this.balances.push(it)
       }

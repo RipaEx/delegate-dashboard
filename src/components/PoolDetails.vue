@@ -27,15 +27,15 @@
     <div class="md:flex md:justify-between mt-6">
       <div class="bg-grey-lighter w-full md:mr-3 p-8 mt-6 md:mt-0 xl:p-12-16 shadow">
         <h2 class="mb-2">Total paid</h2>
-        <p>{{ delegate.totalpaid }} BPL</p>
+        <p v-if="delegate.poollogs">{{ delegate.poollogs.totalpaid }} BPL</p>
       </div>
       <div class="bg-grey-lighter w-full md:mx-3 p-8 mt-6 md:mt-0 xl:p-12-16 shadow">
         <h2 class="mb-2">Total pending</h2>
-        <p>{{ delegate.totalpending }} BPL</p>
+        <p v-if="delegate.poollogs">{{ delegate.poollogs.totalpending }} BPL</p>
       </div>
       <div class="bg-grey-lighter w-full md:ml-3 p-8 mt-6 md:mt-0 xl:p-12-16 shadow">
         <h2 class="mb-2">Next payout</h2>
-        <p>{{ delegate.nextpayout }}</p>
+        <p v-if="delegate.poollogs">{{ delegate.poollogs.nextpayout }}</p>
       </div>
     </div>
   </div>
