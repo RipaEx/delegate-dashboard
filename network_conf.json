@@ -1,5 +1,6 @@
 {
     "server": "https://pool.dated.fun/node/api",
+    "poollogs": "https://pool.dated.fun/api/poollogs/",
     "address": "BHzWuAJbMRLAUKTQfjjn56KR3xoBar6CRi",
     "pubkey": "026a8425d1a09d0ff873cae2576911eb892d33ba0a35bd98e2b287e31814a78673"
 }

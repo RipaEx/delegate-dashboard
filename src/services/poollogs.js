@@ -2,8 +2,10 @@ import axios from 'axios'
 
 class PoollogService {
   get () {
+    const netconfig = require('../../network_conf.json')
+
     return axios
-      .get('https://pool.dated.fun/api/poollogs/')
+      .get(netconfig.poollogs)
       .then(
         response =>
           response.status === 200 ? response : Promise.reject(response)
