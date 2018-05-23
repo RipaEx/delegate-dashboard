@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-2xl mx-auto md:pt-5">
-    <jumbotron></jumbotron>
+    <jumbotron :buttons='buttons'></jumbotron>
     <pool-details :delegate='delegate'></pool-details>
   </div>
 </template>
@@ -20,7 +20,17 @@ export default {
   },
 
   data: () => ({
-    delegate: {}
+    delegate: {},
+    buttons: [
+      {
+        'text': 'Explorer',
+        'url': 'http://bplexp.blockpool.io/address/BHzWuAJbMRLAUKTQfjjn56KR3xoBar6CRi/'
+      },
+      {
+        'text': 'Github',
+        'url': 'https://github.com/dated/'
+      }
+    ]
   }),
 
   mounted () {

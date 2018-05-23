@@ -6,8 +6,9 @@
     <p class="mb-8 text-md">public pool ~ weekly payouts ~ min payout 1 BPL ~ fees covered</p>
 
     <div class="font-normal">
-    <a href="http://bplexp.blockpool.io/address/BHzWuAJbMRLAUKTQfjjn56KR3xoBar6CRi" class="inline-block px-4 py-3 bg-blue text-white shadow">Explorer</a>
-    <a href="https://github.com/dated/" class="inline-block px-4 py-3 bg-blue text-white shadow">Github</a>
+      <a v-for="(button, index) in buttons" :key="index" :href="button.url" class="inline-block px-4 py-3 mr-3 bg-blue text-white shadow">
+        {{ button.text }}
+      </a>
     </div>
   </div>
 </template>
@@ -16,16 +17,10 @@
 // import { mapGetters } from 'vuex'
 
 export default {
-  components: {
-
-  },
-
-  data: () => ({
-
-  }),
-
-  computed: {
-    // ...mapGetters('ui', ['priceChart']),
+  props: {
+    buttons: {
+      type: Array
+    }
   }
 }
 </script>
