@@ -27,7 +27,7 @@ export default {
 
 <style>
   .jumbotron {
-    background-image: url('../assets/images/background.svg');
+    background-image: url('../assets/images/background.png');
     background-size: 500px 500px;
     background-position: right -120px bottom -120px;
     background-repeat: no-repeat;
