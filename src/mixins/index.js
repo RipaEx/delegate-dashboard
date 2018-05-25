@@ -17,10 +17,10 @@ const methods = {
     console.log('hello')
   },
 
-  readableCrypto (value, appendCurrency = true) {
+  formatNumber (value, decimals = 8, appendCurrency = true) {
     if (typeof value !== 'undefined') {
       value = value.toLocaleString(undefined, {
-        maximumFractionDigits: 8
+        maximumFractionDigits: decimals
       })
 
       return appendCurrency ? `${value} BPL` : value
