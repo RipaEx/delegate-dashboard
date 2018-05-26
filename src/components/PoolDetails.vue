@@ -8,14 +8,14 @@
         </div>
         <div class="bg-grey-lighter w-full sm:ml-3 md:mr-3 mt-6 md:mt-0 p-8 xl:p-12-16 shadow">
           <h2 class="mb-2">Productivity</h2>
-          <p>{{ delegate.productivity }}%</p>
+          <p>{{ formatNumber(delegate.productivity, 2, false) }}%</p>
         </div>
       </div>
 
       <div class="flex flex-col sm:flex-row w-full mt-6 md:mt-0">
         <div class="bg-grey-lighter w-full mr-3 md:mx-3 p-8 xl:p-12-16 shadow">
           <h2 class="mb-2">Approval</h2>
-          <p>{{ delegate.approval }}%</p>
+          <p>{{ formatNumber(delegate.approval, 2, false) }}%</p>
         </div>
         <div class="bg-grey-lighter w-full sm:ml-3 mt-6 sm:mt-0 p-8 xl:p-12-16 shadow">
           <h2 class="mb-2">Voters</h2>
@@ -27,11 +27,11 @@
     <div class="md:flex md:justify-between mt-6">
       <div class="bg-grey-lighter w-full md:mr-3 p-8 mt-6 md:mt-0 xl:p-12-16 shadow">
         <h2 class="mb-2">Total paid</h2>
-        <p v-if="delegate.poollogs">{{ readableCrypto(delegate.poollogs.totalpaid) }}</p>
+        <p v-if="delegate.poollogs">{{ formatNumber(delegate.poollogs.totalpaid) }}</p>
       </div>
       <div class="bg-grey-lighter w-full md:mx-3 p-8 mt-6 md:mt-0 xl:p-12-16 shadow">
         <h2 class="mb-2">Total pending</h2>
-        <p v-if="delegate.poollogs">{{ readableCrypto(delegate.poollogs.totalpending) }}</p>
+        <p v-if="delegate.poollogs">{{ formatNumber(delegate.poollogs.totalpending) }}</p>
       </div>
       <div class="bg-grey-lighter w-full md:ml-3 p-8 mt-6 md:mt-0 xl:p-12-16 shadow">
         <h2 class="mb-2">Next payout</h2>
