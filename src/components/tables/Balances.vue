@@ -4,7 +4,7 @@
     <table-component :data="balances" sort-by="received" sort-order="desc" :show-filter="false" :show-caption="false" table-class="w-full">
       <table-column show="address" label="Address" header-class="text-left" cell-class="left-cell">
         <template slot-scope="row">
-          {{ row.address }}
+          <a v-bind:href="'http://bplexp.blockpool.io/address/' + row.address">{{ row.address }}</a>
         </template>
       </table-column>
 
