@@ -27,7 +27,7 @@ export default {
         'url': 'http://bplexp.blockpool.io/address/BHzWuAJbMRLAUKTQfjjn56KR3xoBar6CRi/'
       },
       {
-        'text': 'Github',
+        'text': 'GitHub',
         'url': 'https://github.com/dated/'
       }
     ]
