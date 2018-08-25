@@ -54,7 +54,7 @@ frequency: {
   amount: 1
 },
 
-pubkey: "DELEGATE_PUB_KEY",
+pubkey: 'DELEGATE_PUB_KEY',
 
 buttons: {
   link1: 'url1',
