@@ -1,8 +1,8 @@
 const dashboardConfig = {
-  currency: "TICKER",
-  api_node: "NODE_URL",
-  explorer: "EXPLORER_URL",
-  poollogs: "POOLLOGS_URL",
+  currency: 'TICKER',
+  api_node: 'NODE_URL',
+  explorer: 'EXPLORER_URL',
+  poollogs: 'POOLLOGS_URL',
   
   frequency: {
     unit: 'day',
