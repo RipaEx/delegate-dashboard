@@ -1,11 +1,10 @@
 import axios from 'axios'
+import config from '../../config/dashboard'
 
 class NodeService {
-  get (url, config) {
-    const netconfig = require('../../network_conf.json')
-
+  get (url, params) {
     return axios
-      .get(`${netconfig.server}/${url}`, config)
+      .get(`${config.api_node}/${url}`, params)
       .then(
         response =>
           response.data.success ? response : Promise.reject(response)

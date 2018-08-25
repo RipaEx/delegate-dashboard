@@ -1,13 +1,13 @@
 <template>
   <div class="jumbotron max-w-xl bg-grey-lighter mx-auto p-8 xl:p-12-16 shadow">
-    <h1 class="text-5xl my-4"><a href="#">dated delegate pool</a></h1>
+    <h1 class="text-5xl my-4"><a href="#">{{ description.title }}</a></h1>
 
-    <p class="mb-2 text-xl">sharing 90% of forged amount (reward &amp; fees) to voters</p>
-    <p class="mb-8 text-md">public pool ~ weekly payouts ~ min payout 1 BPL ~ fees covered</p>
+    <p v-if="description.desc" class="mb-2 text-xl">{{ description.desc }}</p>
+    <p v-if="description.subdesc" class="mb-8 text-md">{{ description.subdesc }}</p>
 
     <div class="font-normal">
-      <a v-for="(button, index) in buttons" :key="index" :href="button.url" class="inline-block px-4 py-3 mr-3 bg-blue text-white shadow">
-        {{ button.text }}
+      <a v-for="(url, text) in buttons" :key="url" :href="url" class="inline-block px-4 py-3 mr-3 bg-blue text-white shadow">
+        {{ text }}
       </a>
     </div>
   </div>
@@ -19,7 +19,11 @@
 export default {
   props: {
     buttons: {
-      type: Array
+      type: Object
+    },
+    description: {
+      type: Object,
+      required: true
     }
   }
 }

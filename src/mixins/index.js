@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import config from '../../config/dashboard'
 // import moment from 'moment'
 
 const methods = {
@@ -13,17 +14,13 @@ const methods = {
     return value.toFixed(digits)
   },
 
-  hello () {
-    console.log('hello')
-  },
-
   formatNumber (value, decimals = 8, appendCurrency = true) {
     if (typeof value !== 'undefined') {
       value = value.toLocaleString(undefined, {
         maximumFractionDigits: decimals
       })
 
-      return appendCurrency ? `${value} BPL` : value
+      return appendCurrency ? `${value} ${config.currency}` : value
     }
   }
 }

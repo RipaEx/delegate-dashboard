@@ -11,6 +11,7 @@
 <script type="text/ecmascript-6">
 import AppHeader from '@/components/Header'
 import AppFooter from '@/components/Footer'
+
 export default {
   name: 'App',
   components: { AppHeader, AppFooter },

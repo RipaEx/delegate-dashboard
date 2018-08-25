@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-2xl mx-auto md:pt-5">
-    <jumbotron :buttons='buttons'></jumbotron>
+  <div class="max-w-2xl mx-auto px-4 pb-4 md:pt-5">
+    <jumbotron :buttons='buttons' :description='description'></jumbotron>
     <pool-details :delegate='delegate'></pool-details>
   </div>
 </template>
@@ -10,8 +10,7 @@ import DelegateService from '@/services/delegate'
 import PoolDetails from '@/components/PoolDetails'
 import Jumbotron from '@/components/Jumbotron'
 import moment from 'moment'
-
-const netconfig = require('../../network_conf.json')
+import config from '../../config/dashboard'
 
 export default {
   components: {
@@ -21,20 +20,12 @@ export default {
 
   data: () => ({
     delegate: {},
-    buttons: [
-      {
-        'text': 'Explorer',
-        'url': 'http://bplexp.blockpool.io/address/BHzWuAJbMRLAUKTQfjjn56KR3xoBar6CRi/'
-      },
-      {
-        'text': 'Github',
-        'url': 'https://github.com/dated/'
-      }
-    ]
+    buttons: config.buttons,
+    description: config.jumbotron
   }),
 
   mounted () {
-    DelegateService.find(netconfig.pubkey)
+    DelegateService.find(config.pubkey)
       .then(response => {
         this.setDelegate(response)
         this.setNextPayout()
@@ -59,7 +50,7 @@ export default {
     },
 
     setNextPayout () {
-      this.delegate.poollogs.nextpayout = moment.unix(this.delegate.poollogs.lastpayout).add(1, 'week').format('MMM D, YYYY')
+      this.delegate.poollogs.nextpayout = moment.unix(this.delegate.poollogs.lastpayout).add(config.frequency.amount, config.frequency.unit).format('MMM D, YYYY')
     }
   },
 

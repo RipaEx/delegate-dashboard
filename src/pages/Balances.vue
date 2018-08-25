@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-2xl mx-auto md:pt-5">
+  <div class="max-w-2xl mx-auto px-4 pb-4 md:pt-5">
     <balances :balances='balances'></balances>
   </div>
 </template>
@@ -26,9 +26,9 @@ export default {
   methods: {
     setBalances (accounts) {
       for (const addr in accounts) {
-        let it = accounts[addr]
-        it['address'] = addr
-        this.balances.push(it)
+        let row = accounts[addr]
+        row['address'] = addr
+        this.balances.push(row)
       }
     }
   },

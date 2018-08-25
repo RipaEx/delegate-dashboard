@@ -1,11 +1,10 @@
 import axios from 'axios'
+import config from '../../config/dashboard'
 
 class PoollogService {
   get () {
-    const netconfig = require('../../network_conf.json')
-
     return axios
-      .get(netconfig.poollogs)
+      .get(config.poollogs)
       .then(
         response =>
           response.status === 200 ? response : Promise.reject(response)
