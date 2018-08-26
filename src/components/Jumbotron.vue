@@ -1,12 +1,12 @@
 <template>
-  <div class="jumbotron max-w-xl bg-grey-lighter mx-auto p-8 xl:p-12-16 shadow">
-    <h1 class="text-5xl my-4"><a href="#">{{ description.title }}</a></h1>
+  <div class="jumbotron max-w-xl bg-grey-lighter mx-auto p-4 xl:p-8 shadow flex flex-col items-end justify-end">
+    <!-- <h1 class="text-5xl my-4"><a href="#">{{ description.title }}</a></h1> -->
 
-    <p v-if="description.desc" class="mb-2 text-xl">{{ description.desc }}</p>
-    <p v-if="description.subdesc" class="mb-8 text-md">{{ description.subdesc }}</p>
+    <p v-if="description.desc" class="mb-4 font-normal text-xl text-white">{{ description.desc }}</p>
+    <p v-if="description.subdesc" class="mb-8 text-md text-white">{{ description.subdesc }}</p>
 
     <div class="font-normal">
-      <a v-for="(url, text) in buttons" :key="url" :href="url" class="inline-block px-4 py-3 mr-3 bg-blue text-white shadow">
+      <a v-for="(url, text) in buttons" :key="url" :href="url" class="inline-block px-4 py-3 ml-3 bg-blue text-white shadow">
         {{ text }}
       </a>
     </div>
@@ -31,9 +31,9 @@ export default {
 
 <style>
   .jumbotron {
+    min-height: 390px;
     background-image: url('../assets/images/background.png');
-    background-size: 500px 500px;
-    background-position: right -120px bottom -120px;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 </style>

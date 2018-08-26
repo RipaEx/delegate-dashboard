@@ -19,7 +19,7 @@
         </div>
         <div class="bg-grey-lighter w-full sm:ml-3 mt-6 sm:mt-0 p-8 xl:p-12-16 shadow">
           <h2 class="mb-2">Voters</h2>
-          <p>{{ delegate.voters - 1 }}</p>
+          <p>{{ delegate.voters }}</p>
         </div>
       </div>
     </div>
