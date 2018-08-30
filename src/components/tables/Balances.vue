@@ -55,7 +55,7 @@ export default {
 
   computed: {
     explorer () {
-      return config.explorer_url
+      return config.explorer
     },
     currency () {
       return config.currency
